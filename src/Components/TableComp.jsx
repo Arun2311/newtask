@@ -146,13 +146,13 @@ const TableComp = () => {
           ))}
         </tbody>
       </table>
-
+<div className="mt">
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={setCurrentPage}
       />
-
+</div>
       {showModal && (
         <div className="modal">
           <div className="modal-content">
