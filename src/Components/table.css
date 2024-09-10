@@ -1,0 +1,96 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .inp{
+    margin-bottom: 30px;
+    width: 50%;
+    height: 30px;
+  }
+
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    padding-right: 30px;
+  }
+  
+  th {
+    cursor: pointer;
+  }
+  
+  button {
+    margin: 0 5px;
+    padding: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 4px;
+  }
+
+  .mt{
+    margin-top: 30px;
+  }
+  
+
+  /* Table and modal styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    cursor: pointer;
+    /* background-color: #f4f4f4; */
+  }
+  
+  button {
+    margin: 0 5px;
+    padding: 5px;
+  }
+  
+  .menu {
+    position: absolute;
+    background-color: wheat;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .menu button {
+    display: block;
+    margin: 5px 0;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: wheat;
+    padding: 20px;
+    border-radius: 4px;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    margin: 10px 0;
+  }
+  
