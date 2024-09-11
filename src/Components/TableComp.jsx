@@ -7,7 +7,7 @@ const API_URL = "https://jsonplaceholder.typicode.com/users";
 const TableComp = () => {
   const [tableData, setTableData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage,setrowsPerPage] = useState(2);
+  const [rowsPerPage,setrowsPerPage] = useState(5);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortColumn, setSortColumn] = useState("");
   const [isAscending, setIsAscending] = useState(true);
@@ -84,10 +84,7 @@ const TableComp = () => {
 
   const totalPages = 2
 
-  const paginatedData = filteredData.slice(
-    (currentPage - 1) * rowsPerPage,
-    currentPage * rowsPerPage
-  );
+  const paginatedData = filteredData.slice((currentPage - 1) * rowsPerPage , currentPage * rowsPerPage);
 
   return (
     <div>
@@ -144,7 +141,9 @@ const TableComp = () => {
             </tr>
           ))}
         </tbody>
+
       </table>
+
       <div className="mt">
         <Pagination
           currentPage={currentPage}
@@ -152,6 +151,7 @@ const TableComp = () => {
           onPageChange={setCurrentPage}
         />
       </div>
+
       {showModal && (
         <div className="modal">
           <div className="modal-content">
