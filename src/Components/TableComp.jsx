@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Pagination from "./PaginationComp"; 
+import Pagination from "./PaginationComp";
 import "./table.css";
 
 const API_URL = "https://jsonplaceholder.typicode.com/users";
@@ -7,7 +7,7 @@ const API_URL = "https://jsonplaceholder.typicode.com/users";
 const TableComp = () => {
   const [tableData, setTableData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage] = useState(2); 
+  const [rowsPerPage,setrowsPerPage] = useState(2);
   const [searchQuery, setSearchQuery] = useState("");
   const [sortColumn, setSortColumn] = useState("");
   const [isAscending, setIsAscending] = useState(true);
@@ -15,6 +15,8 @@ const TableComp = () => {
   const [showModal, setShowModal] = useState(false);
   const [editData, setEditData] = useState(null);
   const [showMenu, setShowMenu] = useState(null);
+
+
 
   const handlefetch = async () => {
     try {
@@ -66,29 +68,26 @@ const TableComp = () => {
     );
     setTableData(updatedData);
     setShowModal(false);
-    setShowMenu(false)
-
+    setShowMenu(false);
   };
 
   const handleDelete = (index) => {
     const updatedData = tableData.filter((da, i) => i !== index);
     setTableData(updatedData);
     setShowModal(false);
-    setShowMenu(false)
-
+    setShowMenu(false);
   };
 
   const filteredData = tableData.filter((item) =>
     columns.some((col) => String(item[col]).toLowerCase().includes(searchQuery))
   );
 
-  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+  const totalPages = 2
 
   const paginatedData = filteredData.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
-
 
   return (
     <div>
@@ -146,13 +145,13 @@ const TableComp = () => {
           ))}
         </tbody>
       </table>
-<div className="mt">
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
-</div>
+      <div className="mt">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </div>
       {showModal && (
         <div className="modal">
           <div className="modal-content">
@@ -169,12 +168,14 @@ const TableComp = () => {
               </div>
             ))}
             <button onClick={saveEdit}>Save</button>
-            <button onClick={() => {
-                setShowModal(false)
-                setShowMenu(false)
-
-            }
-                }>Cancel</button>
+            <button
+              onClick={() => {
+                setShowModal(false);
+                setShowMenu(false);
+              }}
+            >
+              Cancel
+            </button>
           </div>
         </div>
       )}
